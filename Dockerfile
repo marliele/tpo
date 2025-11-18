@@ -12,12 +12,15 @@ RUN apt-get update && apt-get install -y \
     unzip \
     python3 \
     python3-pip \
+    python3-venv \
     chromium \
     chromium-driver
 
 RUN pip3 install \
     selenium \
-    locust 
+    locust \
+    requests \
+    urllib3
 
 RUN jenkins-plugin-cli --plugins workflow-aggregator git docker-workflow
 
