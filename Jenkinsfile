@@ -10,10 +10,7 @@ pipeline
                 sh 'rm -rf romulus romulus.zip'
 
 				echo 'Stage Qemu: Downloading packages'
-				sh 'apt update && apt install -y qemu-system wget unzip python3 python3-pip python3-venv chromium chromium-driver'
-
-				echo 'Stage Qemu: Downloading Python packages'
-				sh 'pip3 install selenium locust requests urllib3'
+				sh 'apt update && apt install -y qemu-system wget unzip chromium python3 python3-selenium python3-locust python3-requests python3-urllib3'
 				
                 echo 'Stage Qemu: Downloading romulus.zip'
                 sh 'wget https://jenkins.openbmc.org/job/ci-openbmc/lastSuccessfulBuild/distro=ubuntu,label=docker-builder,target=romulus/artifact/openbmc/build/tmp/deploy/images/romulus/*zip*/romulus.zip'
