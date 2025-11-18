@@ -13,8 +13,8 @@ pipeline
 				sh 'apt update && apt install -y qemu-system wget unzip chromium chromium-driver chromium-l10n python3 python3-selenium python3-locust python3-requests python3-urllib3'
 
 				echo 'Finding browsers'
-            	find / -name '*chrom*' -type f 2>/dev/null | grep -v snap | head -20
-            	find / -name '*google*chrome*' -type f 2>/dev/null | head -10
+          	 	find / -name \"*chrom*\" -type f 2>/dev/null | grep -v snap | head -20
+            	find / -name \"*google*chrome*\" -type f 2>/dev/null | head -10
             
             	echo 'Checking installations'
             	which chromium && chromium --version || echo 'chromium not found'
