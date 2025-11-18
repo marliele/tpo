@@ -55,7 +55,7 @@ pipeline
                 catchError(buildResult: 'SUCCESS', stageResult: 'UNSTABLE') {
                     sh '''
                         echo "Running Selenium autotests:"
-                        cd Lab4
+                        cd lab4
                         which chromium-browser || which google-chrome || echo "Chrome not found"
 			python3 openbmc_auth_tests.py >> ../selenium_results.txt 2>&1 || echo "Selenium autotests finished with exit code: $?"  
                         echo "Selenium autotests output:"
@@ -72,7 +72,7 @@ pipeline
                 catchError(buildResult: 'SUCCESS', stageResult: 'UNSTABLE') {
                     sh '''
                         echo "Running Locust tests:"
-                        cd Lab6
+                        cd lab6
                         timeout 60 locust --headless --users 1 --spawn-rate 1 --run-time 30s --host=https://127.0.0.1:2443 > ../locust_results.txt 2>&1 || echo "Locust tests finished with exit code: $?"
                         echo "Locust tests output:"
                         cat ../locust_results.txt
@@ -95,8 +95,6 @@ pipeline
                     fi
                     rm -rf romulus/ romulus.zip || true
                     rm -f *.log *.pid *.json *.csv || true
-                    rm -f qemu.pid image_path.txt config.env || true
-                    du -sh . | awk '{print $1}'
                 '''
             }
         }
