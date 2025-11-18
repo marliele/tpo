@@ -13,7 +13,8 @@ pipeline
 				sh 'apt update && apt install -y qemu-system wget unzip chromium chromium-driver chromium-l10n python3 python3-selenium python3-locust python3-requests python3-urllib3'
 
 				echo 'Finding browsers'
-				echo "Chromium: \$(which chromium 2>/dev/null || which chromium-browser 2>/dev/null || echo 'NOT FOUND')"
+				which chromium >/dev/null 2>&1 && echo "Chromium: FOUND" || echo "Chromium: NOT FOUND"
+            	which chromium-browser >/dev/null 2>&1 && echo "Chromium-browser: FOUND" || echo "Chromium-browser: NOT FOUND"
 				
                 echo 'Stage Qemu: Downloading romulus.zip'
                 sh 'wget https://jenkins.openbmc.org/job/ci-openbmc/lastSuccessfulBuild/distro=ubuntu,label=docker-builder,target=romulus/artifact/openbmc/build/tmp/deploy/images/romulus/*zip*/romulus.zip'
