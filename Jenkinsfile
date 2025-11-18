@@ -72,7 +72,7 @@ pipeline
                     sh '''
                         echo "Running Locust tests:"
                         cd lab6
-                        timeout 60 locust --headless --users 1 --spawn-rate 1 --run-time 30s --host=https://127.0.0.1:2443 > ../locust_results.txt 2>&1 || echo "Locust tests finished with exit code: $?"
+                        timeout 60 locust --headless --users 1 --spawn-rate 1 --run-time 30s --host=https://127.0.0.1:2443 OpenBmcUser > ../locust_results.txt 2>&1 || echo "Locust tests finished with exit code: $?"
                         echo "Locust tests output:"
                         cat ../locust_results.txt
                     '''
