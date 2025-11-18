@@ -32,7 +32,7 @@ pipeline
                     echo $QEMU_PID > qemu.pid
                     
                     echo "Waiting for QEMU to boot..."
-                    sleep 180
+                    sleep 60
                     
                     if ps -p $QEMU_PID > /dev/null; then
                         echo "QEMU is running successfully"
