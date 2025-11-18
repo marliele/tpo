@@ -10,7 +10,7 @@ pipeline
                 sh 'rm -rf romulus romulus.zip'
 
 				echo 'Stage Qemu: Downloading packages'
-				sh 'apt update && apt install -y qemu-system wget unzip chromium chromium-driver python3 python3-selenium python3-locust python3-requests python3-urllib3'
+				sh 'apt update && apt install -y qemu-system wget unzip chromium chromium-driver python3 python3-selenium python3-locust python3-requests python3-urllib3 python3-webdriver-manager'
 
 				echo 'Finding browsers'
 				sh '''
