@@ -57,7 +57,7 @@ pipeline
                     sh '''
                         echo "Running Selenium autotests:"
                         cd lab4
-						python3 openbmc_auth_tests.py >> ../selenium_results.txt 2>&1 || echo "Selenium autotests finished with exit code: $?"  
+						python3 openbmc_auth_tests.py > ../selenium_results.txt 2>&1 || echo "Selenium autotests finished with exit code: $?"  
                         echo "Selenium autotests output:"
                         cat ../selenium_results.txt
                     '''
