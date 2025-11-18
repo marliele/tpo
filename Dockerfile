@@ -7,6 +7,9 @@ RUN echo "deb http://deb.debian.org/debian bookworm main" > /etc/apt/sources.lis
     echo "deb http://security.debian.org/debian-security bookworm-security main" >> /etc/apt/sources.list
 
 RUN apt-get update && apt-get install -y \
+    qemu-system \
+    wget \
+    unzip \
     python3 \
     python3-pip \
     chromium \
