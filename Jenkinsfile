@@ -57,8 +57,7 @@ pipeline
                     sh '''
                         echo "Running Selenium autotests:"
                         cd lab4
-                        which chromium-browser || which google-chrome || echo "Chrome not found"
-			python3 openbmc_auth_tests.py >> ../selenium_results.txt 2>&1 || echo "Selenium autotests finished with exit code: $?"  
+						python3 openbmc_auth_tests.py >> ../selenium_results.txt 2>&1 || echo "Selenium autotests finished with exit code: $?"  
                         echo "Selenium autotests output:"
                         cat ../selenium_results.txt
                     '''
@@ -104,7 +103,7 @@ pipeline
     {
         always 
         {
-            echo 'Archiving all test-related text files...'
+            echo 'Archiving all result.txt files...'
             archiveArtifacts artifacts: '**/*.txt', fingerprint: true
             echo 'Pipeline finished.'
         }
