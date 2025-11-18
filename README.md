@@ -8,4 +8,6 @@ python3 lab4/openbmc_auth_tests.py
 locust -f lab6/locustfile.py --host=httsp://localhost:2443 -u 10 -r 2 OpenBmcUser
 locust -f lab6/locustfile.py --host=https://localhost:2443 -u 10 -r 2 PublicApiUser
 
-
+for docker:
+docker build -t my-jenkins .
+docker run -p 8080:8080 -p 50000:50000 -v jenkins_home:/var/jenkins_home my-jenkins
