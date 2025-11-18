@@ -22,6 +22,12 @@ RUN pip3 install \
     requests \
     urllib3
 
+RUN ln -sf /usr/bin/python3 /usr/bin/python || true
+RUN ln -sf /usr/local/bin/locust /usr/bin/locust || true
+
+RUN ls -la /usr/bin/python* && \
+    ls -la /usr/bin/locust /usr/local/bin/locust 2>/dev/null || echo "Python and Locust links created"
+
 RUN jenkins-plugin-cli --plugins workflow-aggregator git docker-workflow
 
 EXPOSE 8080
