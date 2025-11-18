@@ -9,9 +9,6 @@ pipeline
                 echo 'Stage Qemu: Cleaning and preparing environment'
                 sh 'rm -rf romulus romulus.zip'
                 
-                echo 'Stage Qemu: Updating packages and installing dependencies'
-                sh 'apt update && apt install -y qemu-system wget unzip'
-                
                 echo 'Stage Qemu: Downloading romulus.zip'
                 sh 'wget https://jenkins.openbmc.org/job/ci-openbmc/lastSuccessfulBuild/distro=ubuntu,label=docker-builder,target=romulus/artifact/openbmc/build/tmp/deploy/images/romulus/*zip*/romulus.zip'
                 sh 'unzip romulus.zip'
