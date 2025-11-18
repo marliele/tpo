@@ -14,11 +14,11 @@ options.add_argument("--no-sandbox")
 options.add_argument("--disable-dev-shm-usage")
 options.add_argument('--ignore-certificate-errors')
 
-service = Service(ChromeDriverManager().install())
-driver = webdriver.Chrome(service=service, options=options)
-#driver_path = '/usr/bin/chromedriver'
-#service = Service(driver_path)
-#driver = webdriver.Chrome(service=service) 
+#service = Service(ChromeDriverManager().install())
+#driver = webdriver.Chrome(service=service, options=options)
+driver_path = '/usr/bin/chromedriver'
+service = Service(driver_path)
+driver = webdriver.Chrome(service=service, options=options) 
 
 driver.implicitly_wait(10)
 
